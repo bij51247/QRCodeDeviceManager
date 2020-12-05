@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include('layouts/head') %>
+
+<body>
+
+  <%- include('layouts/header') %>
+
+  <section class="conA">
+    <div class="container">
+      <form action="/register/new" method="POST" class="col-auto">
+        <div class="parts">
+          <p>機材名</p>
+          <input class="form-control" type="text" name="product_name">
+        </div>
+        <div class="parts">
+          <input type="file" class="form-control" id="image" name="image">
+        </div>
+        <div>
+          <button class="btn btn-primary">登録</button>
+        </div>
+      </form>
+      <a href="/home">ホームへ</a>
+    </div>
+  </section>
+
+  <%- include('layouts/footer') %>
+</body>
+
+</html>

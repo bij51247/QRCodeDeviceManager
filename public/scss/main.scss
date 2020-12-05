@@ -1,0 +1,40 @@
+
+body{
+  font-family:'BIZ-UDGothicR.ttc';
+}
+header{
+  background-color: rgb(32, 100, 202);
+  color: #fff;
+  padding: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  h3{
+    font-size: 3vw;
+  }
+}
+
+section{
+  .container{
+    width:80%;
+    // background-color: aqua;
+    margin: 50px auto;
+    text-align: center;
+    ul{
+      list-style: none;
+      
+    }
+
+    a{
+      text-decoration: none;
+    }
+    .parts{
+      margin: 50px;
+    }
+
+  }
+}
+
+footer{
+  text-align: center;
+  font-size: x-small;
+  color: darkgray;
+}

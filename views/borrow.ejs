@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include('layouts/head') %>
+
+<body>
+
+  <%- include('layouts/header') %>
+
+  <section class="conA">
+    <div class="container">
+      <form class="col-auto">
+        <div class="parts">
+          <p>氏名</p>
+          <input type="text">
+        </div>
+        <div class="parts">
+          <p>使用場所</p>
+          <input>
+        </div>
+        <div class="parts">
+          <button type="buttn" class="btn btn-secondary">QRコードを起動</button>
+        </div>
+        <button type="button" class="btn btn-primary">借りる</button>
+      </form>
+      <a href="/home">ホームへ</a>
+    </div>
+  </section>
+
+  <%- include('layouts/footer') %>
+
+</body>
+
+</html>

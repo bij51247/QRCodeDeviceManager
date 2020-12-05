@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include('layouts/head') %>
+
+<body>
+
+  <%- include('layouts/header') %>
+
+  <section class="conA">
+    <div class="container">
+      <p>貸し出し状況</p>
+      <div class="card" style="max-width:25rem">
+        <h4 class="card-header">カメラ</h4>
+        <img class="card-img-top" src="img/camera.jpg">
+        <div class="card-body">
+          <h4 class="card-title">木村先生</h4>
+          <h6 class="card-subtitle">多目的ホール</h6>
+        </div>
+      </div>
+      <div class="card-footer">
+        <p type="button" class=" btn btn-danger">貸し出し中</p>
+      </div>
+      <a href="/home">ホームへ</a>
+    </div>
+  </section>
+
+  <%- include('layouts/footer') %>
+</body>
+
+</html>
