@@ -9,13 +9,14 @@
 
   <section class="conA">
     <div class="container">
-      <form action="/register/new" method="POST" class="col-auto">
+      <form action="/register/new" method="POST" class="col-auto" enctype="multipart/form-data">
         <div class="parts">
           <p>機材名</p>
-          <input class="form-control" type="text" name="product_name">
+          <input class="form-control" type="text" name="device_name">
         </div>
         <div class="parts">
-          <input type="file" class="form-control" id="image" name="image">
+          写真を登録する
+          <input type="file" class="form-control" name= "image">
         </div>
         <div>
           <button class="btn btn-primary">登録</button>
