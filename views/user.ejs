@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include('layouts/head') %>
+
+<body>
+
+  <%- include('layouts/header') %>
+
+  <section class="conA">
+    <div class="container">
+      <h1>アカウント登録</h1>
+      <form action="/user/new" method="POST" enctype="multipart/form-data">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>User Name</label>
+            <input type="text" class="form-control" placeholder="User Name" id="username" name="username">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="User Name" id="password" name="password">
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">登録</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <%- include('layouts/footer') %>
+</body>
+
+</html>

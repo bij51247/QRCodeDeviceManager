@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include('layouts/head') %>
+
+<body>
+
+  <%- include('layouts/header') %>
+
+  <section class="conA">
+    <div class="container">
+      <form method="POST" action="/qrcode/borrow_return">
+        <div>
+          <input name="device_name">
+          <p>QRCodeを起動する</p>
+        </div>
+        <button class="btn btn-primary">判定</button>
+      </form>
+      <a href="/home">ホームへ</a>
+    </div>
+  </section>
+
+  <%- include('layouts/footer') %>
+
+</body>
+
+</html>
