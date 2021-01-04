@@ -27,8 +27,6 @@ app.use(expressSession({
 }));
 
 const mongoose = require('mongoose');
-const DevicePost = require('./models/DevicePost');
-const User = require('./models/User');
 mongoose.connect('mongodb://localhost/device_database', {
   useNewUrlParser: true
 })
@@ -40,28 +38,29 @@ const aboutController = require('./controllers/about');
 const qrcodeController = require('./controllers/qrcode');
 const statusController = require('./controllers/status');
 const registerController = require('./controllers/register');
-// const borrow_returnController = require('./controllers/borrow_return');
 const newUserController = require('./controllers/newUser');
 
 const newRegisterPostController = require('./controllers/newRegisterPost');
 const newUserPostController = require('./controllers/newUserPost');
+const generateController = require('./controllers/generate');
+const readController = require('./controllers/read');
 const loginController = require('./controllers/login');
 
 
 app.get('/', loginPageController);
-app.get('/home', homeController);
+app.get('/home', authMiddleware, homeController);
 app.get('/qrcode', authMiddleware, qrcodeController)
 app.get('/about', authMiddleware, aboutController);
 app.get('/logout', authMiddleware, logoutController);
 app.get('/status', authMiddleware, statusController);
 app.get('/register', authMiddleware, registerController);
-// app.get('/borrow_return', authMiddleware, borrow_returnController);
 app.get('/newUser', newUserController);
-// app.get('/login', loginController);
 
 app.post('/register/new', newRegisterPostController);
 app.post('/user/new', newUserPostController);
+app.post('/generate', generateController);
 app.post('/user/login', loginController);
+app.post('/read', readController);
 
 
 
@@ -114,13 +113,6 @@ app.post('/user/login', loginController);
 //     res.redirect('/home');
 //   });
 // });
-app.post('/qrcode/borrow_return', async (req, res) => {
-  const devicepost = await DevicePost.findOne({ device_name: req.body.device_name });
-  console.log(devicepost);
-  res.render('borrow_return', {
-    devicepost: devicepost
-  });
-});
 // app.post('/user/new', (req, res) => {
 //   User.create(req.body, (error, User) => {
 //     if (error) {
@@ -146,6 +138,30 @@ app.post('/qrcode/borrow_return', async (req, res) => {
 //     } else {
 //       res.redirect('/');
 //     }
+//   });
+// });
+// app.post('/generate', (req, res) => {
+//   QRCode.toCanvas(canvas, req.body.uuid, options, function (error) {
+//     const ctx = canvas.getContext('2d');
+//     ctx.font = '10px Impact';
+//     ctx.fillStyle = 'blue';
+//     ctx.fillText(req.body.name, 15, 10);
+//     var image_src = canvas.toDataURL();
+//     res.send(image_src);
+//   });
+// });
+
+// app.post('/generate/new', (req, res) => {
+//   let image = req.files.image;
+//   console.log(req.body.uuid);
+//   image.mv(path.resolve(__dirname, '..', 'public/img', image.name), async (error) => {
+//     await DevicePost.create({
+//       // ...req.body,
+//       device_name: req.body.device_name,
+//       uuid: req.body.uuid,
+//       image: '/img/' + image.name,
+//     });
+//     res.redirect('/home');
 //   });
 // });
 

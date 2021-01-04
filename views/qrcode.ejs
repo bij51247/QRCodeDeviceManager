@@ -3,25 +3,43 @@
 
 <%- include('layouts/head') %>
 
-<body>
+  <body>
 
-  <%- include('layouts/header') %>
+    <%- include('layouts/header') %>
 
-  <section class="conA">
-    <div class="container">
-      <form method="POST" action="/qrcode/borrow_return">
-        <div>
-          <input name="device_name">
-          <p>QRCodeを起動する</p>
+      <section class="conA">
+        <div class="container" id="app">
+          <canvas id="canvas"></canvas>
+
+          <form method="POST" action="/qrcode/borrow_return">
+            <div>{{device_name}}</div>
+
+            <div v-if="flag==true">
+              <div>
+                <p>使用者</p>
+                <input>
+                <p>使用場所</p>
+                <input>
+              </div>
+              <button class="btn btn-primary">借りる</button>
+            </div>
+
+            <div v-if="flag==false">
+              <button class="btn btn-primary" v-if="flag==false">返却する</button>
+            </div>
+
+          </form>
+          <a href="/home">ホームへ</a>
         </div>
-        <button class="btn btn-primary">判定</button>
-      </form>
-      <a href="/home">ホームへ</a>
-    </div>
-  </section>
+      </section>
 
-  <%- include('layouts/footer') %>
+      <%- include('layouts/footer') %>
 
-</body>
+
+        <script src="/js/jsQR.min.js"></script>
+        <script src="/js/vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/js/qrReader.js"></script>
+  </body>
 
 </html>

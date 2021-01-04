@@ -6,17 +6,18 @@ const DevicePostSchema = new Schema({
     type: String,
     default: null,
   },
-  // datePosted: {
-  //   type: Date,
-  //   default: '',
-  // },
+  datePosted: {
+    type: Date,
+    default: '',
+  },
   image: String,
   device_name: String,
+  uuid: String,
   location: {
     type: String,
     default: "",
   },
-  check: {
+  flag: {
     type: Boolean,
     default: true,
   }

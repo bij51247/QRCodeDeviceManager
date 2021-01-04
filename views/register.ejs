@@ -3,30 +3,40 @@
 
 <%- include('layouts/head') %>
 
-<body>
+  <body>
 
-  <%- include('layouts/header') %>
+    <%- include('layouts/header') %>
 
-  <section class="conA">
-    <div class="container">
-      <form action="/register/new" method="POST" class="col-auto" enctype="multipart/form-data">
-        <div class="parts">
-          <p>機材名</p>
-          <input class="form-control" type="text" name="device_name">
+      <section class="conA">
+        <div class="container" id="app">
+          <form action="/register/new" method="POST" class="col-auto" enctype="multipart/form-data">
+            <div class="parts">
+              <p>機材名</p>
+              <input v-model="name" class="form-control" type="text" name="device_name">
+            </div>
+            <div class="parts">
+              写真を登録する
+              <input type="file" class="form-control" name="image">
+            </div>
+            <div class="parts">
+              <img v-bind:src="image_src">
+              <input name="uuid" v-bind:value="uuid" type="hidden">
+            </div>
+            <div>
+              <button type="button" v-on:click="getImageSrc">QRコード発行</button>
+            </div>
+            <div>
+              <button class="btn btn-primary">登録</button>
+            </div>
+          </form>
+          <a href="/home">ホームへ</a>
         </div>
-        <div class="parts">
-          写真を登録する
-          <input type="file" class="form-control" name= "image">
-        </div>
-        <div>
-          <button class="btn btn-primary">登録</button>
-        </div>
-      </form>
-      <a href="/home">ホームへ</a>
-    </div>
-  </section>
+      </section>
 
-  <%- include('layouts/footer') %>
-</body>
+      <%- include('layouts/footer') %>
+        <script src="/js/vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/js/qrGenerator.js"></script>
+  </body>
 
 </html>
