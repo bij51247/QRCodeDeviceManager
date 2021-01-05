@@ -3,33 +3,46 @@
 
 <%- include('layouts/head') %>
 
-<body>
+  <body>
 
-  <%- include('layouts/header') %>
+    <%- include('layouts/header') %>
 
-  <section class="conA">
-    <div class="container">
-      <p>貸し出し状況</p>
-      <% for(var i= 0; i < deviceposts.length; i++){ %>
-      <div class="card" style="max-width:25rem">
-        <h4 class="card-header"><%= deviceposts[i].device_name %> </h4>
-        <img class="card-img-top" src="<%= deviceposts[i].image %> ">
-        <div class="card-body">
-          <h4 class="card-title">使用者:　<%= deviceposts[i].user %> </h4>
-          <h6 class="card-subtitle">使用場所:　<%= deviceposts[i].location %> </h6>
-          <!-- <h6 class="card-subtitle">貸出時間　 </h6> -->
+      <section class="conA">
+        <div class="container">
+          <p>貸し出し状況</p>
+  
+          <% for(var i=0; i < deviceposts.length; i++){ %>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th style="width: 20%;">
+                    <img src="<%= deviceposts[i].image %> " class="img-fluid rounded">
+                  </th>
+                  <td class="align-middle text-center" style="width: 45%;">
+                    <a href="/status/<%= deviceposts[i]._id  %>  ">
+                      <%= deviceposts[i].device_name %>
+                    </a>
+                  </td>
+                  <% if(deviceposts[i].flag==true) {%>
+                    <td class="align-middle text-center" style="width: 35%;">
+                      <div type="button" class=" btn btn-success" style="font-size: 2vw;">貸し出し可</div>
+                    </td>
+                    <% } %>
+                      <% if(deviceposts[i].flag==false){ %>
+                        <td class="align-middle text-center" style="width: 35%;">
+                          <p type="button" class=" btn btn-danger" style="font-size: 2vw;">貸し出し中</p>
+                        </td>
+                        <% } %>
+                </tr>
+              </tbody>
+            </table>
+
+            <% } %>
+              <a href="/home">ホームへ</a>
         </div>
-      </div>
-      <div class="card-footer">
-        <p type="button" class=" btn btn-success">貸し出し可</p>
-      </div>
+      </section>
 
-      <% } %>
-      <a href="/home">ホームへ</a>
-    </div>
-  </section>
-
-  <%- include('layouts/footer') %>
-</body>
+      <%- include('layouts/footer') %>
+  </body>
 
 </html>

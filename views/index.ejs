@@ -3,45 +3,47 @@
 
 <%- include('layouts/head') %>
 
-<body>
+  <body>
 
-  <%- include('layouts/header') %>
+    <%- include('layouts/header') %>
 
-  <section class="conA">
-    <div class="container">
-      <div class="login">
-        <p>ログイン画面</p>
-        <!-- <div>
+      <section class="conA">
+        <div class="container">
+          <div class="login">
+            <p>ログイン画面</p>
+            <!-- <div>
           <a href="/home">ログイン</a>
         </div> -->
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <form action="/user/login" method="POST" enctype="multipart/form-data">
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label>User Name</label>
-                  <input type="text" class="form-control" placeholder="User Name" name="username">
-                </div>
+            <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                <form action="/user/login" method="POST" enctype="multipart/form-data">
+                  <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                      <label>User Name</label>
+                      <input type="text" class="form-control" placeholder="User Name" name="username">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                      <label>Password</label>
+                      <input type="password" class="form-control" placeholder="Password" name="password">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">ログイン</button>
+                  </div>
+                </form>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                  <label>Password</label>
-                  <input type="password" class="form-control" placeholder="Password" name="password">
-                </div>
-              </div>
-              <br>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">ログイン</button>
-              </div>
-            </form>
+            </div>
+            <div>
+              <a href="/newUser">アカウントを登録する</a>
+            </div>
           </div>
         </div>
-        <div>
-          <a href="/newUser">アカウントを登録する</a>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <%- include('layouts/footer') %>
-</body>
+      <%- include('layouts/footer') %>
+  </body>
+
+</html>

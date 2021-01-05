@@ -11,24 +11,29 @@
         <div class="container" id="app">
           <canvas id="canvas"></canvas>
 
-          <form method="POST" action="/qrcode/borrow_return">
-            <div>{{device_name}}</div>
-
-            <div v-if="flag==true">
+          <div>{{device_name}}</div>
+          <div v-if="flag==true">
+            <form method="POST" action="/borrow">
               <div>
+                <input v-bind:value="uuid" name="uuid">
                 <p>使用者</p>
-                <input>
+                <input name="user">
                 <p>使用場所</p>
-                <input>
+                <input name="location">
+                <input type="hidden" v-model="flag" name="flag">
+                <button class="btn btn-primary">借りる</button>
               </div>
-              <button class="btn btn-primary">借りる</button>
-            </div>
+            </form>
+          </div>
 
-            <div v-if="flag==false">
+          <div v-if="flag==false">
+            <form method="POST" action="/return">
+              <input v-bind:value="uuid" name="uuid">
+              <input type="hidden" v-model="flag" name="flag">
               <button class="btn btn-primary" v-if="flag==false">返却する</button>
-            </div>
+            </form>
+          </div>
 
-          </form>
           <a href="/home">ホームへ</a>
         </div>
       </section>

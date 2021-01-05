@@ -3,35 +3,45 @@
 
 <%- include('layouts/head') %>
 
-<body>
+  <body>
 
-  <%- include('layouts/header') %>
+    <%- include('layouts/header') %>
 
-  <section class="conA">
-    <div class="container">
-      <h1>アカウント登録</h1>
-      <form action="/user/new" method="POST" enctype="multipart/form-data">
-        <div class="control-group">
-          <div class="form-group floating-label-form-group controls">
-            <label>User Name</label>
-            <input type="text" class="form-control" placeholder="User Name" id="username" name="username">
-          </div>
+      <section class="conA">
+        <div class="container">
+          <h1>アカウント登録</h1>
+          <% if(errors !=null && errors.length>0) { %>
+            <ul class="list-group">
+              <% for(var i=0; i < errors.length; i++){ %>
+                <li class="list-group-item list-group-item-danger">
+                  <%= errors[i] %>
+                </li>
+                <% } %>
+            </ul>
+            <% } %>
+              <form action="/user/new" method="POST" enctype="multipart/form-data">
+                <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                    <label>User Name</label>
+                    <input type="text" class="form-control" placeholder="User Name" id="username" name="username"
+                      value="<%= username %>">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="Password" id="password" name="password" value="<%= password %>">
+                  </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary">登録</button>
+                </div>
+              </form>
         </div>
-        <div class="control-group">
-          <div class="form-group floating-label-form-group controls">
-            <label>Password</label>
-            <input type="password" class="form-control" placeholder="User Name" id="password" name="password">
-          </div>
-        </div>
-        <br>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">登録</button>
-        </div>
-      </form>
-    </div>
-  </section>
+      </section>
 
-  <%- include('layouts/footer') %>
-</body>
+      <%- include('layouts/footer') %>
+  </body>
 
 </html>

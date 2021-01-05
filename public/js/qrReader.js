@@ -1,13 +1,15 @@
 new Vue({
   el: '#app',
-  data: {
-    video: null,
-    canvas: null,
-    context: null,
-    uuid: '',
-    completed: false,
-    device_name: null,
-    flag: null,
+  data() {
+    return {
+      video: null,
+      canvas: null,
+      context: null,
+      uuid: '',
+      completed: false,
+      device_name: null,
+      flag: null,
+    }
   },
   computed: {
     hasUuid() {
@@ -37,14 +39,14 @@ new Vue({
 
           if (code) {
             this.uuid = code.data;
-            console.log('OK');
+            // console.log(this.uuid);
             axios.post('/read', { uuid: this.uuid })
               .then((response) => {
                 const result = response.data;
-                // console.log(response.data);
                 this.device_name = response.data.device_name;
-                // this.flag = response.data.flag;
-                this.flag = false;
+                this.flag = response.data.flag;
+                this.uuid = response.data.uuid;
+                // this.flag = false;
                 // console.log(user);
                 if (result) {
                   this.completed = true;
@@ -60,9 +62,7 @@ new Vue({
               })
               .catch((error) => { })
               .then(() => {
-
-                this.uuid = '';
-
+                //   this.uuid = '';
               });
 
           }

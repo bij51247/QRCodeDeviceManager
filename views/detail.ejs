@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<%- include('layouts/head') %>
+
+  <body>
+
+    <%- include('layouts/header') %>
+
+      <section class="conA">
+        <div class="container">
+          <img src="<%= devicepost.image %>  ">
+          <img src="<%= devicepost.qrImgSrc %>  ">
+          <h1>
+            <%= devicepost.device_name %>
+          </h1>
+          <h2>
+            <%= devicepost.user %>
+          </h2>
+          <h3>
+            <%= devicepost.location %>
+          </h3>
+          <h3>
+            <%= devicepost.datePosted.toDateString() %>
+          </h3>
+        </div>
+      </section>
+
+      <%- include('layouts/footer') %>
+  </body>
+
+</html>
