@@ -52,15 +52,16 @@ const readController = require('./controllers/read');
 const loginController = require('./controllers/login');
 const borrowPostController = require('./controllers/borrowPost');
 const returnPostController = require('./controllers/returnPost');
+const deleteDeviceController = require('./controllers/deleteDevice');
 
 app.get('/', loginPageController);
-app.get('/home', homeController); //add atuthMiddel
-app.get('/qrcode', qrcodeController)
-app.get('/about', aboutController);//and home.js
-app.get('/logout', logoutController);
-app.get('/status', statusController);
-app.get('/status/:id', detailController);
-app.get('/register', registerController);//to here
+app.get('/home', authMiddleware, homeController); //add atuthMiddel
+app.get('/qrcode', authMiddleware, qrcodeController)
+app.get('/about', authMiddleware, aboutController);//and home.js
+app.get('/logout', authMiddleware, logoutController);
+app.get('/status', authMiddleware, statusController);
+app.get('/status/:id', authMiddleware, detailController);
+app.get('/register', authMiddleware, registerController);//to here
 app.get('/newUser', newUserController);
 
 app.post('/register/new', newRegisterPostController);
@@ -69,6 +70,7 @@ app.post('/generate', generateController);
 app.post('/user/login', loginController);
 app.post('/read', readController);
 app.post('/borrow', borrowPostController);
+app.post('/deleteDevice', deleteDeviceController);
 app.post('/return', returnPostController);
 
 app.use((req, res) => {

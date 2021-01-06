@@ -9,6 +9,7 @@ new Vue({
       completed: false,
       device_name: null,
       flag: null,
+      error_message: '',
     }
   },
   computed: {
@@ -19,6 +20,11 @@ new Vue({
     }
   },
   methods: {
+    retry: function () {
+      console.log("OK");
+      this.completed = false;
+      this.uuid = ''
+    },
     renderFrame() {
 
       requestAnimationFrame(this.renderFrame);   // 描画を繰り返す
@@ -39,15 +45,19 @@ new Vue({
 
           if (code) {
             this.uuid = code.data;
-            // console.log(this.uuid);
+            console.log(this.uuid);
             axios.post('/read', { uuid: this.uuid })
               .then((response) => {
+                console.log(response.data);
                 const result = response.data;
+                if (result == 'このQRコードは登録されていません') {
+                  this.error_message = result;
+                }
                 this.device_name = response.data.device_name;
                 this.flag = response.data.flag;
                 this.uuid = response.data.uuid;
                 // this.flag = false;
-                // console.log(user);
+                console.log(user);
                 if (result) {
                   this.completed = true;
 
@@ -72,6 +82,7 @@ new Vue({
       }
 
     }
+
   },
   mounted() {
 

@@ -21,8 +21,12 @@
             <%= devicepost.location %>
           </h3>
           <h3>
-            <%= devicepost.datePosted.toDateString() %>
+            <%= devicepost.datePosted %>
           </h3>
+          <form action="/deleteDevice" method="POST">
+            <input type="hidden" value="<%= devicepost.uuid %>" name="uuid">
+            <button type="submit">消去</button>
+          </form>
         </div>
       </section>
 

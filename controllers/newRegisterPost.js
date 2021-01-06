@@ -9,6 +9,8 @@ module.exports = (req, res) => {
       qrImgSrc: req.body.qrImgSrc,
       uuid: req.body.uuid,
       image: '/img/' + image.name,
+      deviceid: req.session.userId,
+      datePosted: ''
     });
     res.redirect('/home');
   });

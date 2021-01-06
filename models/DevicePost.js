@@ -10,8 +10,13 @@ const DevicePostSchema = new Schema({
     type: Date,
     default: '',
   },
+  deviceid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
   image: String,
-  qrImgSrc:String,
+  qrImgSrc: String,
   device_name: String,
   uuid: String,
   location: {

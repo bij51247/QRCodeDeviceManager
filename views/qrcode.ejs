@@ -12,6 +12,7 @@
           <canvas id="canvas"></canvas>
 
           <div>{{device_name}}</div>
+          <div>{{error_message}} </div>
           <div v-if="flag==true">
             <form method="POST" action="/borrow">
               <div>
@@ -33,7 +34,7 @@
               <button class="btn btn-primary" v-if="flag==false">返却する</button>
             </form>
           </div>
-
+          <button v-on:click="retry">再読み込み</button>
           <a href="/home">ホームへ</a>
         </div>
       </section>
