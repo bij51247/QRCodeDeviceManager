@@ -53,6 +53,7 @@ const loginController = require('./controllers/login');
 const borrowPostController = require('./controllers/borrowPost');
 const returnPostController = require('./controllers/returnPost');
 const deleteDeviceController = require('./controllers/deleteDevice');
+const deleteUserController = require('./controllers/deleteUser');
 
 app.get('/', loginPageController);
 app.get('/home', authMiddleware, homeController); //add atuthMiddel
@@ -71,6 +72,7 @@ app.post('/user/login', loginController);
 app.post('/read', readController);
 app.post('/borrow', borrowPostController);
 app.post('/deleteDevice', deleteDeviceController);
+app.post('/deleteUser', deleteUserController);
 app.post('/return', returnPostController);
 
 app.use((req, res) => {
