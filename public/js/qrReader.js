@@ -23,6 +23,7 @@ new Vue({
     },
     checkReady() {
       return [this.location, this.user];
+
     }
   },
   watch: {

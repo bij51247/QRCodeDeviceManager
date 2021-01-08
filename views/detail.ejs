@@ -7,11 +7,13 @@
 
     <%- include('layouts/header') %>
 
-      <section class="conA">
+      <section class="conA" id="app">
         <div class="container">
           <img src="<%= devicepost.image %>  ">
-          <img src="<%= devicepost.qrImgSrc %>  ">
+          <img src="<%= devicepost.qrImgSrc %> " id="qrImgSrc">
+          <button type="button" class="btn btn-primary" v-on:click="getQRcode">QRコードをダウンロードする</button>
           <h1>
+            <input type="hidden" value="<%= devicepost.device_name %>" id="deviceName">
             <%= devicepost.device_name %>
           </h1>
           <h2>
@@ -23,14 +25,19 @@
           <h3>
             <%= devicepost.datePosted %>
           </h3>
+
           <form action="/deleteDevice" method="POST">
             <input type="hidden" value="<%= devicepost.uuid %>" name="uuid">
-            <button type="submit">消去</button>
+            <button type="submit" class="btn btn-danger">消去</button>
           </form>
+          <a href="/home">ホームへ</a>
         </div>
       </section>
 
       <%- include('layouts/footer') %>
+        <script src="/js/vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/js/detail.js"></script>
   </body>
 
 </html>

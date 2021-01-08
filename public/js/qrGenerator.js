@@ -39,7 +39,26 @@ new Vue({
     }
   },
   methods: {
+    async getQRcode() {
+      const response = await axios.get(this.image_src, { responseType: "blob" });
+      this.downloadImage(response);
+    },
+    downloadImage(response) {
+      let dLink = document.createElement('a');
+      const dataUrl = URL.createObjectURL(response.data);
+      var fileName = this.name + `.${response.data.type.replace("image/", "")}`
+      dLink.href = dataUrl;
 
+      document.body.insertAdjacentElement('beforeend', dLink);
+      dLink.download = fileName;
+      dLink.click();
+      dLink.remove();
+
+      setTimeout(function () {
+        window.URL.revokeObjectURL(dataUrl);
+      }, 1000);
+
+    },
     getImageSrc: function () {
       // console.log("OK");
       this.count++;
