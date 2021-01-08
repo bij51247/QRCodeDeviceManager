@@ -10,7 +10,13 @@
       <section class="conA">
         <div class="container">
           <p>貸し出し状況</p>
-  
+          <div>
+            <form action="/research" method="POST">
+              <input name="name">
+              <button type="submit"> 検索</button>
+            </form>
+          </div>
+
           <% for(var i=0; i < deviceposts.length; i++){ %>
             <table class="table">
               <tbody>

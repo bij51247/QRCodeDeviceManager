@@ -1,17 +1,51 @@
 new Vue({
   el: '#app',
   data: {
-    name: null,
+    name: '',
+    picture: null,
     uuid: '',
     image_src: null,
+    generateReady: true,
+    registReady: true,
+    count: 0,
+  },
+  computed: {
+    checkGenerateReady() {
+      return [this.name, this.picture];
+    }
+  },
+  watch: {
+    name: function (val) {
+      // console.log(val);
+      console.log(this.picture)
+      console.log(this.count);
+      this.image_src = ''
+      this.count = 0
+    },
+    count: function (val) {
+      // console.log(this.count);
+      if (this.count > 0) {
+        this.registReady = false;
+      } else {
+        this.registReady = true;
+      }
+    },
+    checkGenerateReady(e) {
+      if (e[0] != '' && e[1] != null) {
+        this.generateReady = false;
+      } else {
+        this.generateReady = true;
+      }
+    }
   },
   methods: {
+
     getImageSrc: function () {
       // console.log("OK");
+      this.count++;
       axios.post('/generate', { name: this.name, uuid: this.uuid })
         .then((response) => {
           const result = response;
-
           if (result) {
             this.image_src = result.data;
             console.log(result.data);

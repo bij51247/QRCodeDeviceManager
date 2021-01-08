@@ -54,6 +54,7 @@ const borrowPostController = require('./controllers/borrowPost');
 const returnPostController = require('./controllers/returnPost');
 const deleteDeviceController = require('./controllers/deleteDevice');
 const deleteUserController = require('./controllers/deleteUser');
+const researchController = require('./controllers/research');
 
 app.get('/', loginPageController);
 app.get('/home', authMiddleware, homeController); //add atuthMiddel
@@ -74,6 +75,7 @@ app.post('/borrow', borrowPostController);
 app.post('/deleteDevice', deleteDeviceController);
 app.post('/deleteUser', deleteUserController);
 app.post('/return', returnPostController);
+app.post('/research', researchController);
 
 app.use((req, res) => {
   res.render('notfound');

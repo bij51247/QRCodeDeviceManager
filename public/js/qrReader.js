@@ -1,7 +1,8 @@
 new Vue({
   el: '#app',
-  data() {
+  data: function () {
     return {
+      ready: true,
       video: null,
       canvas: null,
       context: null,
@@ -10,6 +11,8 @@ new Vue({
       device_name: null,
       flag: null,
       error_message: '',
+      user: '',
+      location: '',
     }
   },
   computed: {
@@ -17,6 +20,18 @@ new Vue({
 
       return (this.uuid !== '');
 
+    },
+    checkReady() {
+      return [this.location, this.user];
+    }
+  },
+  watch: {
+    checkReady(ready) {
+      if (ready[0] != '' && ready[1] != '') {
+        this.ready = false;
+      }else{
+        this.ready = true;
+      }
     }
   },
   methods: {

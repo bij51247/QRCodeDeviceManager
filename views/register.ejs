@@ -16,7 +16,7 @@
             </div>
             <div class="parts">
               写真を登録する
-              <input type="file" class="form-control" name="image">
+              <input type="file" v-model="picture" class="form-control" name="image">
             </div>
             <div class="parts">
               <img v-bind:src="image_src">
@@ -24,10 +24,11 @@
               <input name="uuid" v-bind:value="uuid" type="hidden">
             </div>
             <div>
-              <button type="button" v-on:click="getImageSrc">QRコード発行</button>
+              <button class="btn btn-primary" type="button" v-on:click="getImageSrc"
+                v-bind:disabled="generateReady">QRコード発行</button>
             </div>
             <div>
-              <button class="btn btn-primary">登録</button>
+              <button class="btn btn-primary" v-bind:disabled="registReady">登録</button>
             </div>
           </form>
           <a href="/home">ホームへ</a>

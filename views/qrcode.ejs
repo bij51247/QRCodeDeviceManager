@@ -10,7 +10,6 @@
       <section class="conA">
         <div class="container" id="app">
           <canvas id="canvas"></canvas>
-
           <div>{{device_name}}</div>
           <div>{{error_message}} </div>
           <div v-if="flag==true">
@@ -18,11 +17,11 @@
               <div>
                 <input v-bind:value="uuid" name="uuid">
                 <p>使用者</p>
-                <input name="user">
+                <input name="user" v-model="user">
                 <p>使用場所</p>
-                <input name="location">
+                <input name="location" v-model="location">
                 <input type="hidden" v-model="flag" name="flag">
-                <button class="btn btn-primary">借りる</button>
+                <button class="btn btn-primary" :disabled="ready">借りる</button>
               </div>
             </form>
           </div>
@@ -34,7 +33,7 @@
               <button class="btn btn-primary" v-if="flag==false">返却する</button>
             </form>
           </div>
-          <button v-on:click="retry">再読み込み</button>
+          <button  v-on:click="retry">再読み込み</button>
           <a href="/home">ホームへ</a>
         </div>
       </section>
