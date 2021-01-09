@@ -9,7 +9,7 @@
 
       <section class="conA">
         <div class="container">
-          <h1>アカウント登録</h1>
+          <h3>アカウント登録</h3>
           <% if(errors !=null && errors.length>0) { %>
             <ul class="list-group">
               <% for(var i=0; i < errors.length; i++){ %>
@@ -22,17 +22,25 @@
               <form action="/user/new" method="POST" enctype="multipart/form-data">
                 <div class="control-group">
                   <div class="form-group floating-label-form-group controls">
-                    <label>User Name</label>
+                    <label class="float-left ml-2">ユーザー名</label>
                     <input type="text" class="form-control" placeholder="User Name" id="username" name="username"
                       value="<%= username %>">
                   </div>
                 </div>
                 <div class="control-group">
                   <div class="form-group floating-label-form-group controls">
-                    <label>Password</label>
+                    <label class="float-left ml-2">パスワード</label>
+                    <div>
+                      <p class="text-left text-danger" style="font-size: small;">(半角英数字、大文字小文字を含む、8文字以上)</p>
+                    </div>
                     <input type="password" class="form-control" placeholder="Password" id="password" name="password"
                       value="<%= password %>">
-                    <input type="password" class="form-control" placeholder="Password" name="passwordConfirmation">
+                    <div class="control-group">
+                      <di class="form-group">
+                        <label class="float-left ml-2">確認</label>
+                        <input type="password" class="form-control" placeholder="Password" name="passwordConfirmation">
+                      </di>
+                    </div>
                   </div>
                 </div>
                 <br>

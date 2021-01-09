@@ -6,49 +6,43 @@
   <body>
 
     <%- include('layouts/header') %>
-
       <section class="conA">
         <div class="container">
-          <div class="login">
-            <p>ログイン画面</p>
-            <!-- <div>
-          <a href="/home">ログイン</a>
-        </div> -->
-            <% if(errors !=null && errors.length>0) { %>
-              <ul class="list-group">
-                <% for(var i=0; i < errors.length; i++){ %>
-                  <li class="list-group-item list-group-item-danger">
-                    <%= errors[i] %>
-                  </li>
-                  <% } %>
-              </ul>
-              <% } %>
-                <div class="row">
-                  <div class="col-lg-8 col-md-10 mx-auto">
-                    <form action="/user/login" method="POST" enctype="multipart/form-data">
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group controls">
-                          <label>User Name</label>
-                          <input type="text" class="form-control" placeholder="User Name" name="username">
-                        </div>
+          <p>ログイン画面</p>
+          <% if(errors !=null && errors.length>0) { %>
+            <ul class="list-group">
+              <% for(var i=0; i < errors.length; i++){ %>
+                <li class="list-group-item list-group-item-danger">
+                  <%= errors[i] %>
+                </li>
+                <% } %>
+            </ul>
+            <% } %>
+              <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                  <form action="/user/login" method="POST" enctype="multipart/form-data">
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                        <label class="float-left ml-2">ユーザー名</label>
+                        <input type="text" class="form-control" placeholder="User Name" name="username">
                       </div>
-                      <div class="control-group">
-                        <div class="form-group floating-label-form-group controls">
-                          <label>Password</label>
-                          <input type="password" class="form-control" placeholder="Password" name="password">
-                        </div>
+                    </div>
+                    <div class="control-group">
+                      <div class="form-group floating-label-form-group controls">
+                        <label class="float-left ml-2">パスワード</label>
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                       </div>
-                      <br>
-                      <div class="form-group">
-                        <button type="submit" class="btn btn-primary">ログイン</button>
-                      </div>
-                    </form>
-                  </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary">ログイン</button>
+                    </div>
+                  </form>
                 </div>
-                <div>
-                  <a href="/newUser">アカウントを登録する</a>
-                </div>
-          </div>
+              </div>
+              <div class="alert alert-info m-3">
+                <a class="text-info" href="/newUser">アカウントを登録する</a>
+              </div>
         </div>
       </section>
 

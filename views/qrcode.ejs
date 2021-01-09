@@ -9,32 +9,44 @@
 
       <section class="conA">
         <div class="container" id="app">
+          <div class="shadow-lg py-3 mb-5 bg-white rounded">
+            <block style="font-size: 12px;" class="alert alert-info color-info mx-2">QRコードをかざして下さい</block>
+            <button v-on:click="retry" class="btn btn-outline-info btn-sm mx-2">再読み込み</button>
+          </div>
           <canvas id="canvas"></canvas>
-          <div>{{device_name}}</div>
-          <div>{{error_message}} </div>
+          <div class="m-3" v-if="flag != null">
+            <block style="font-weight: bold;">機種名：</block> {{device_name}}
+          </div>
+          <div>{{error_message}}</div>
           <div v-if="flag==true">
             <form method="POST" action="/borrow">
-              <div>
-                <input v-bind:value="uuid" name="uuid">
-                <p>使用者</p>
-                <input name="user" v-model="user">
-                <p>使用場所</p>
-                <input name="location" v-model="location">
+              <input type="hidden" v-bind:value="uuid" name="uuid">
+              <div class="form-group">
+                <label class="float-left ml-2">使用者</label>
+                <input class="form-control" name="user" v-model="user">
+              </div>
+              <div class="form-group">
+                <label class="float-left ml-2">使用場所</label>
+                <input class="form-control" name="location" v-model="location">
                 <input type="hidden" v-model="flag" name="flag">
+              </div>
+              <div class="form-group">
                 <button class="btn btn-primary" :disabled="ready">借りる</button>
               </div>
+
             </form>
           </div>
 
           <div v-if="flag==false">
             <form method="POST" action="/return">
-              <input v-bind:value="uuid" name="uuid">
+              <input type="hidden" v-bind:value="uuid" name="uuid">
               <input type="hidden" v-model="flag" name="flag">
               <button class="btn btn-primary" v-if="flag==false">返却する</button>
             </form>
           </div>
-          <button  v-on:click="retry">再読み込み</button>
-          <a href="/home">ホームへ</a>
+          <div>
+            <a href="/home">ホームへ</a>
+          </div>
         </div>
       </section>
 

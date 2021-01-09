@@ -39,7 +39,8 @@ new Vue({
     retry: function () {
       console.log("OK");
       this.completed = false;
-      this.uuid = ''
+      this.uuid = '';
+      this.error_message ='';
     },
     renderFrame() {
 
