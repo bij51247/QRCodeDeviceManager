@@ -14,6 +14,8 @@ const bcrypt = require('bcrypt');
 
 const validateMiddleWare = require('./middleware/validateMiddleware');
 const authMiddleware = require('./middleware/authMiddleware');
+const loginMiddleware = require('./middleware/loginMiddleware');
+const newUserMiddleware = require('./middleware/newUserMiddleware');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -67,9 +69,9 @@ app.get('/register', authMiddleware, registerController);//to here
 app.get('/newUser', newUserController);
 
 app.post('/register/new', newRegisterPostController);
-app.post('/user/new', newUserPostController);
+app.post('/user/new', newUserMiddleware,newUserPostController);
 app.post('/generate', generateController);
-app.post('/user/login', loginController);
+app.post('/user/login', loginMiddleware, loginController);
 app.post('/read', readController);
 app.post('/borrow', borrowPostController);
 app.post('/deleteDevice', deleteDeviceController);

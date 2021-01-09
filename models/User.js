@@ -7,7 +7,7 @@ const UserSchema = new Schema({
   username: {
     type: String,
     required: [true, 'ユーザー名を入力して下さい'],
-    unique: true,
+    unique: [true, '既に登録されているユーザー名です']
   },
   password: {
     type: String,
@@ -15,7 +15,7 @@ const UserSchema = new Schema({
   },
 });
 
-UserSchema.plugin(uniqueValidator);
+UserSchema.plugin(uniqueValidator, { message: 'このユーザー名はすでに使用されています' });
 
 UserSchema.pre('save', function (next) {
   const user = this;

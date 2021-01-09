@@ -1,3 +1,8 @@
 module.exports = (req, res) => {
-  res.render('index');
+
+
+
+  res.render('index', {
+    errors: [],
+  });
 };
