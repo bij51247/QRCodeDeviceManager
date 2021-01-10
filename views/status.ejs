@@ -8,13 +8,17 @@
     <%- include('layouts/header') %>
 
       <section class="conA">
-        <div class="container">
-          <p>貸し出し状況</p>
+        <div class="container col-sm-8">
+          <div class="shadow-sm p-3 mb-5 bg-light rounded">
+            <a class="btn btn-outline-info btn-sm" href="/home">ホームへ</a>
+          <h6 class="lead text-center">貸し出し状況</h6>
+          </div>
           <div>
             <nav class="navbar navbar-light bg-light">
               <form class="form-inline" action="/research" method="POST">
-                <input  class="form-control mr-sm-2" type="text" placeholder="Search" name="name">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+                <input style="width: 75%;" class="form-control mr-sm-2 mx-1" type="text" placeholder="Search"
+                  name="name">
+                <button class="btn  btn-outline-success my-2 my-sm-0" type="submit">検索</button>
               </form>
             </nav>
           </div>
@@ -24,7 +28,7 @@
               <tbody>
                 <tr class="shadow-sm p-3 mb-5 bg-light rounded">
                   <th style="width: 20%;">
-                    <img src="<%= deviceposts[i].image %> " class="img-fluid rounded">
+                    <img src="<%= deviceposts[i].image %> " class="img-fluid img-thumbnail rounded">
                   </th>
                   <td class="align-middle text-center" style="width: 45%;">
                     <a style="font-size: 2.5vw;" href="/status/<%= deviceposts[i]._id  %>  ">
@@ -46,7 +50,6 @@
             </table>
 
             <% } %>
-              <a href="/home">ホームへ</a>
         </div>
       </section>
 

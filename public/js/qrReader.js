@@ -30,7 +30,7 @@ new Vue({
     checkReady(ready) {
       if (ready[0] != '' && ready[1] != '') {
         this.ready = false;
-      }else{
+      } else {
         this.ready = true;
       }
     }
@@ -40,7 +40,8 @@ new Vue({
       console.log("OK");
       this.completed = false;
       this.uuid = '';
-      this.error_message ='';
+      this.error_message = '';
+      this.flag = null
     },
     renderFrame() {
 

@@ -7,8 +7,10 @@
 
     <%- include('layouts/header') %>
       <section class="conA">
-        <div class="container">
-          <p>ログイン画面</p>
+        <div class="container col-sm-6">
+          <div class="shadow-sm p-3 mb-5 bg-light rounded">
+            <h6 class="text-center">ログイン画面</h6>
+          </div>
           <% if(errors !=null && errors.length>0) { %>
             <ul class="list-group">
               <% for(var i=0; i < errors.length; i++){ %>
@@ -34,14 +36,14 @@
                       </div>
                     </div>
                     <br>
-                    <div class="form-group">
+                    <div class="form-group text-right mr-2">
                       <button type="submit" class="btn btn-primary">ログイン</button>
                     </div>
                   </form>
                 </div>
               </div>
-              <div class="alert alert-info m-3">
-                <a class="text-info" href="/newUser">アカウントを登録する</a>
+              <div class="text-center">
+                  <a class="btn btn-outline-info"  href="/newUser">アカウントを登録する</a>
               </div>
         </div>
       </section>

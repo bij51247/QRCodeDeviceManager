@@ -8,27 +8,42 @@
     <%- include('layouts/header') %>
 
       <section class="conA">
-        <div class="container">
-          <div>
-            このサイトは木村勉によって管理されています。
+        <div class="container col-sm-6">
+          <div class="shadow-sm p-3 mb-5 bg-light rounded">
+            <a href="/home" class="btn btn-outline-info btn-sm">ホームへ</a>
+            <h6 class="lead text-center">このサイトについて</h6>
+          </div>
+          <div class="media my-4">
+            <div class="media-body">
+              <h5 class="mt-0">管理者</h5>
+              <p class="text-body">このサイトは木村勉によって管理されてます。問題が発生した場合は下記の連絡先までお問い合わせ下さい<br><i class="far fa-envelope mr-1 text-black"></i><a  class="text-info" href="mailto:kmrttm247810@gmail.com">kmrttm247810@gmail.com</a> </p>
+            </div>
+          </div>
+          <div class="media my-4">
+            <div class="media-body">
+              <h5 class="mt-0">このサイトのリポジトリ</h5>
+              <p><i class="fab fa-github mr-1"></i><a class="text-info" href="https://github.com/bij51247/QRCodeDeviceManager">bij51247/QRCodeDeviceManager</a></p>
+     
+            </div>
+          </div>
+          <div class="media my-4">
+            <div class="media-body">
+              <h5 class="mt-0">取り扱い</h5>
+              <ul>
+                <li>Ⅰ. 機材を登録します</li>
+                <li>Ⅱ.</li>
+                <li>Ⅲ.</li>
+              </ul>
+            </div>
           </div>
           <div>
-            <p>取り扱い</p>
-            <ul>
-              <li>Ⅰ. 機材を登録します</li>
-              <li>Ⅱ.</li>
-              <li>Ⅲ.</li>
-            </ul>
-          </div>
-          <div>
-            <button class="btn btn-danger">
-              <a href="/logout" style="color:#FFF">ログアウト</a>
-            </button>
+            <a href="/logout" class="text-danger">
+              <button class="btn btn-outline-danger">ログアウト</button>
+            </a>
           </div>
           <form method="POST" action="/deleteUser">
             <button class="btn btn-danger">アカウントを削除する</button>
           </form>
-          <a href="/home">ホームへ</a>
         </div>
       </section>
 

@@ -8,29 +8,33 @@
     <%- include('layouts/header') %>
 
       <section class="conA">
-        <div class="container" id="app">
-          <div class="shadow-lg py-3 mb-5 bg-white rounded">
+        <div class="container col-sm-6" id="app">
+          <div class="shadow-sm p-3 mb-5 bg-light rounded">
+            <a class="btn btn-outline-info btn-sm" href="/home">ホームへ</a>
+            <h6 class="text-center">機材を借りる・返却</h6>
+          </div>
+          <div class="text-center mb-2">
             <block style="font-size: 12px;" class="alert alert-info color-info mx-2">QRコードをかざして下さい</block>
             <button v-on:click="retry" class="btn btn-outline-info btn-sm mx-2">再読み込み</button>
           </div>
           <canvas id="canvas"></canvas>
-          <div class="m-3" v-if="flag != null">
-            <block style="font-weight: bold;">機種名：</block> {{device_name}}
+          <div class="m-3 text-center" v-if="flag != null">
+            <p style="font-weight: bold;">機種名：{{device_name}}</p>
           </div>
           <div>{{error_message}}</div>
           <div v-if="flag==true">
             <form method="POST" action="/borrow">
               <input type="hidden" v-bind:value="uuid" name="uuid">
               <div class="form-group">
-                <label class="float-left ml-2">使用者</label>
-                <input class="form-control" name="user" v-model="user">
+                <label class="float-left ml-2">使用者<span class="ml-1 badge badge-warning">必須</span></label>
+                <input class="form-control" name="user" v-model="user" placeholder="User">
               </div>
               <div class="form-group">
-                <label class="float-left ml-2">使用場所</label>
-                <input class="form-control" name="location" v-model="location">
+                <label class="float-left ml-2">使用場所<span class="ml-1 badge badge-warning">必須</span></label>
+                <input class="form-control" name="location" v-model="location" placeholder="Location">
                 <input type="hidden" v-model="flag" name="flag">
               </div>
-              <div class="form-group">
+              <div class="form-group text-right">
                 <button class="btn btn-primary" :disabled="ready">借りる</button>
               </div>
 
@@ -45,7 +49,6 @@
             </form>
           </div>
           <div>
-            <a href="/home">ホームへ</a>
           </div>
         </div>
       </section>

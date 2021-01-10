@@ -8,14 +8,20 @@
     <%- include('layouts/header') %>
 
       <section class="conA">
-        <div class="container" id="app">
+        <div class="container col-sm-6" id="app">
+          <div class="shadow-sm p-3 mb-5 bg-light rounded">
+            <a class="btn btn-outline-info btn-sm" href="/home">ホームへ</a>
+            <h6 class="text-center">機材を登録する</h6>
+          </div>
           <form action="/register/new" method="POST" class="col-auto" enctype="multipart/form-data">
             <div class="form-group">
-              <label class="float-left ml-2" for="formGroupExampleInput">機材名</label>
+              <label class="float-left ml-2" for="formGroupExampleInput">機材名<span
+                  class="ml-1 badge badge-warning">必須</span> </label>
               <input v-model="name" class="form-control" type="text" name="device_name">
             </div>
             <div class="form-group">
-              <label class="float-left ml-2" for="formGroupExampleInput">写真を登録する</label>
+              <label class="float-left ml-2" for="formGroupExampleInput">写真を登録<span
+                  class="ml-1 badge badge-warning">必須</span></label>
               <input type="file" v-model="picture" class="form-control" name="image">
             </div>
             <div class="form-group">
@@ -29,11 +35,10 @@
               <button type="button" class="btn btn-info btn-sm" v-on:click="getQRcode"
                 v-bind:disabled="registReady">QRコードをダウンロード</button>
             </div>
-            <div class="m-5">
-              <button class="btn btn-primary " v-bind:disabled="registReady">登録</button>
+            <div class="my-5 text-right">
+              <button class="btn btn-primary mr-2" v-bind:disabled="registReady">登録</button>
             </div>
           </form>
-          <a href="/home">ホームへ</a>
         </div>
       </section>
 

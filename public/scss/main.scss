@@ -4,33 +4,24 @@ body{
 }
 header{
   background-color: rgb(32, 100, 202);
-  // background-color: rgb(0, 0, 0);
   color: #fff;
   padding: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   h3{
-    font-size: 3vw;
+    font-size: 15px;
   }
 }
 
 section{
   .container{
     width:90%;
-    // background-color: aqua;
-    margin: 50px auto;
-    text-align: center;
+    margin: 10px auto;
     ul{
       list-style: none;
-      
     }
-
     a{
       text-decoration: none;
     }
-    .parts{
-      margin: 50px;
-    }
-
   }
 }
 

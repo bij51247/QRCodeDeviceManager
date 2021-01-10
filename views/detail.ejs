@@ -8,40 +8,54 @@
     <%- include('layouts/header') %>
 
       <section class="conA" id="app">
-        <div class="card">
-          <div class="card-body">
-            <h3>
-              <input type="hidden" value="<%= devicepost.device_name %>" id="deviceName">
-              <%= devicepost.device_name %>
-            </h3>
+        <div class="container col-sm-6">
+          <div class="shadow-sm p-3 mb-5 bg-light rounded">
+            <a class="btn btn-outline-info btn-sm" href="/status">一覧へ戻る</a>
+            <h6 class="lead text-center">詳細情報</h6>
           </div>
-          <img src="<%= devicepost.image %>" class="img-fluid">
-          <div class="card-body">
-            <p class="card-text">
-              <span style="font-weight: bold;">使用者：</span>
-              <%= devicepost.user %>
-            </p>
-            <p class="card-text">
-              <span style="font-weight: bold;">使用場所：</span>
-              <%= devicepost.location %>
-            </p>
-            <p class="card-text">
-              <span style="font-weight: bold;">貸し出し日時：</span>
-              <% if(devicepost.datePosted){ %>
-                <%= devicepost.datePosted.getFullYear() %><span>年</span><%= devicepost.datePosted.getMonth()+1 %><span>月</span><%= devicepost.datePosted.getDate() %><span>日</span>
-                      <%= devicepost.datePosted.getHours() %><span>時</span><%= devicepost.datePosted.getMinutes() %><span>分</span>
-              <% } %>  
-            </p>
+          <div class="card">
+            <div class="text-center">
+              <img style="width: 80%;height: auto;" src="<%= devicepost.image %>"
+                class="card-img-top img-fluid img-thumbnail">
+            </div>
+            <div class="card-body">
+              <h3 class="carc-title">
+                <input type="hidden" value="<%= devicepost.device_name %>" id="deviceName">
+                <%= devicepost.device_name %>
+              </h3>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                <span style="font-weight: bold;">使用者：</span>
+                <%= devicepost.user %>
+              </p>
+              <p class="card-text">
+                <span style="font-weight: bold;">使用場所：</span>
+                <%= devicepost.location %>
+              </p>
+              <p class="card-text">
+                <span style="font-weight: bold;">貸し出し日時：</span>
+                <% if(devicepost.datePosted){ %>
+                  <%= devicepost.datePosted.getFullYear() %><span>年</span>
+                    <%= devicepost.datePosted.getMonth()+1 %><span>月</span>
+                      <%= devicepost.datePosted.getDate() %><span>日</span>
+                        <%= devicepost.datePosted.getHours() %><span>時</span>
+                          <%= devicepost.datePosted.getMinutes() %><span>分</span>
+                            <% } %>
+              </p>
+            </div>
+            <div class="card-body">
+              <form action="/deleteDevice" method="POST">
+                <img style="width: 50px; height: auto;" src="<%= devicepost.qrImgSrc %> " id="qrImgSrc">
+                <button type="button" class="btn btn-info" v-on:click="getQRcode">QRコードをダウンロード</button>
+                <input type="hidden" value="<%= devicepost.uuid %>" name="uuid">
+                <button type="submit" class="float-right btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+              </form>
+            </div>
           </div>
-        </div>
 
-        <img src="<%= devicepost.qrImgSrc %> " id="qrImgSrc">
-        <button type="button" class="btn btn-primary" v-on:click="getQRcode">QRコードをダウンロードする</button>
-        <form action="/deleteDevice" method="POST">
-          <input type="hidden" value="<%= devicepost.uuid %>" name="uuid">
-          <button type="submit" class="btn btn-danger">消去</button>
-        </form>
-        <a href="/status">一覧へ</a>
+
+        </div>
       </section>
 
       <%- include('layouts/footer') %>

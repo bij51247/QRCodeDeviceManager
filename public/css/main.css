@@ -9,22 +9,18 @@ header {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 header h3 {
-  font-size: 3vw;
+  font-size: 15px;
 }
 
 section .container {
   width: 90%;
-  margin: 50px auto;
-  text-align: center;
+  margin: 10px auto;
 }
 section .container ul {
   list-style: none;
 }
 section .container a {
   text-decoration: none;
-}
-section .container .parts {
-  margin: 50px;
 }
 
 footer {
