@@ -47,7 +47,7 @@
             </form>
           </div>
 
-          <div v-if="flag==false">
+          <div class="text-center" v-if="flag==false">
             <form method="POST" action="/return">
               <input type="hidden" v-bind:value="uuid" name="uuid">
               <input type="hidden" v-model="flag" name="flag">
