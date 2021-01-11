@@ -6,8 +6,8 @@ const canvas = createCanvas(200, 200);
 const options = {};
 
 module.exports = (req, res) => {
-  var text = req.body.name;
-  // var text = encoding.convert(req.body.name, 'UTF8', 'AUTO');
+  // var text = req.body.name;
+  var text = encoding.convert(req.body.name, 'UNICODE', 'AUTO');
   // var detected = encoding.detect(req.body.name);
   // console.log(detected);
   // var text = encoding.convert(req.body.name,{
