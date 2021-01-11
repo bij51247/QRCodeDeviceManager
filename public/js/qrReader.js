@@ -74,7 +74,6 @@ new Vue({
                 this.device_name = response.data.device_name;
                 this.flag = response.data.flag;
                 this.uuid = response.data.uuid;
-                // this.flag = false;
                 console.log(user);
                 if (result) {
                   this.completed = true;
@@ -108,7 +107,13 @@ new Vue({
     this.canvas = document.getElementById('canvas');
     this.context = this.canvas.getContext('2d');
 
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({
+      audio: false,
+      video: {
+        facingMode: {
+          exact: 'environment'
+        }
+      }})
       .then((stream) => {
 
         this.video.srcObject = stream;
