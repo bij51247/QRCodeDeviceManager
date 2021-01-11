@@ -12,7 +12,7 @@ module.exports = (req, res) => {
   QRCode.toCanvas(canvas, req.body.uuid, options, function (error) {
     const ctx = canvas.getContext('2d');
     ctx.font = '/Users/kimuratsutomu/QRCode_Device_Manager/.fonts/RictyDiminished-Regular.ttf';
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'blue';
     ctx.fillText(text, 15, 10);
     var image_src = canvas.toDataURL();
     res.send(image_src);
