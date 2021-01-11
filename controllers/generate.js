@@ -10,7 +10,7 @@ module.exports = (req, res) => {
     const ctx = canvas.getContext('2d');
     ctx.font = '10px Impact';
     ctx.fillStyle = 'blue';
-    ctx.fillText(unescape(req.body.name), 15, 10);
+    ctx.fillText('テスト', 15, 10);
     var image_src = canvas.toDataURL();
     res.send(image_src);
   });
