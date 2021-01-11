@@ -10,7 +10,7 @@
       <section class="conA">
         <div class="container col-md-8" id="app">
           <div class="shadow-sm p-3 mb-5 bg-light rounded">
-            <a class="btn btn-outline-info " href="/home">ホームへ</a>
+            <a class="btn btn-outline-info btn-sm" href="/home">ホームへ</a>
             <h6 class="text-center">機材を登録する</h6>
           </div>
           <form action="/register/new" method="POST" class="col-auto" enctype="multipart/form-data">
@@ -45,7 +45,7 @@
       <%- include('layouts/footer') %>
         <script src="/js/vue.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="/js/qrGenerator.js"></script>
+        <script src="/js/qrGenerator.js" charset="utf-8"></script>
   </body>
 
 </html>
