@@ -8,44 +8,62 @@
     <%- include('layouts/header') %>
 
       <section class="conA">
-        <div class="container col-sm-6">
+        <div class="container col-md-8">
           <div class="shadow-sm p-3 mb-5 bg-light rounded">
-            <a href="/home" class="btn btn-outline-info btn-sm">ホームへ</a>
-            <h6 class="lead text-center">このサイトについて</h6>
+            <a href="/home" class="btn btn-outline-info btn">ホームへ</a>
+            <h6 class="text-center">このサイトについて</h6>
           </div>
           <div class="media my-4">
             <div class="media-body">
               <h5 class="mt-0">管理者</h5>
-              <p class="text-body">このサイトは木村勉によって管理されてます。問題が発生した場合は下記の連絡先までお問い合わせ下さい<br><i class="far fa-envelope mr-1 text-black"></i><a  class="text-info" href="mailto:kmrttm247810@gmail.com">kmrttm247810@gmail.com</a> </p>
+              <p class="text-body">このサイトは木村勉によって管理されてます。問題が発生した場合は下記の連絡先までお問い合わせ下さい<br><i
+                  class="far fa-envelope mr-1 text-black"></i><a
+                  href="mailto:kmrttm247810@gmail.com">kmrttm247810@gmail.com</a> </p>
             </div>
           </div>
           <div class="media my-4">
             <div class="media-body">
               <h5 class="mt-0">このサイトのリポジトリ</h5>
-              <p><i class="fab fa-github mr-1"></i><a class="text-info" href="https://github.com/bij51247/QRCodeDeviceManager">bij51247/QRCodeDeviceManager</a></p>
-     
+              <p><i class="fab fa-github mr-1"></i><a
+                  href="https://github.com/bij51247/QRCodeDeviceManager">bij51247/QRCodeDeviceManager</a></p>
             </div>
           </div>
-          <div class="media my-4">
-            <div class="media-body">
-              <h5 class="mt-0">取り扱い</h5>
-              <ul>
-                <li>Ⅰ. 機材を登録します</li>
-                <li>Ⅱ.</li>
-                <li>Ⅲ.</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <a href="/logout" class="text-danger">
+          <div class="row">
+            <a href="/logout" class="text-danger mx-4">
               <button class="btn btn-outline-danger">ログアウト</button>
             </a>
+            <!-- <form method="POST" action="/deleteUser">
+              <button class="btn btn-danger">アカウントを削除する</button>
+            </form> -->
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCentered">
+              アカウントを削除する
+            </button>
           </div>
-          <form method="POST" action="/deleteUser">
-            <button class="btn btn-danger">アカウントを削除する</button>
-          </form>
         </div>
       </section>
+
+      <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenteredLabel">アカウント削除</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              このアカウントを削除しますか
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+              <form method="POST" action="/deleteUser">
+                <button class="btn btn-danger">削除する</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <%- include('layouts/footer') %>
 

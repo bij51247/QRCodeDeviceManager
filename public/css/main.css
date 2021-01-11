@@ -2,16 +2,6 @@ body {
   font-family: 'BIZ-UDGothicR.ttc';
 }
 
-header {
-  background-color: #2064ca;
-  color: #fff;
-  padding: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-header h3 {
-  font-size: 15px;
-}
-
 section .container {
   width: 90%;
   margin: 10px auto;

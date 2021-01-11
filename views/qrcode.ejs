@@ -8,20 +8,26 @@
     <%- include('layouts/header') %>
 
       <section class="conA">
-        <div class="container col-sm-6" id="app">
+        <div class="container col-md-8" id="app">
           <div class="shadow-sm p-3 mb-5 bg-light rounded">
-            <a class="btn btn-outline-info btn-sm" href="/home">ホームへ</a>
+            <a class="btn btn-outline-info btn" href="/home">ホームへ</a>
             <h6 class="text-center">機材を借りる・返却</h6>
           </div>
-          <div class="text-center mb-2">
-            <block style="font-size: 12px;" class="alert alert-info color-info mx-2">QRコードをかざして下さい</block>
-            <button v-on:click="retry" class="btn btn-outline-info btn-sm mx-2">再読み込み</button>
+
+          <div class="text-center mb-3 text-info">
+            QRコードをかざして下さい
+            <button v-on:click="retry" class=" btn btn-outline-info btn-sm">再読み込み</button>
           </div>
+
           <canvas id="canvas"></canvas>
           <div class="m-3 text-center" v-if="flag != null">
             <p style="font-weight: bold;">機種名：{{device_name}}</p>
           </div>
-          <div>{{error_message}}</div>
+          <div class="m-3 text-center">
+            <p style="font-weight: bold;">
+              {{error_message}}
+            </p>
+          </div>
           <div v-if="flag==true">
             <form method="POST" action="/borrow">
               <input type="hidden" v-bind:value="uuid" name="uuid">

@@ -4,55 +4,58 @@
 <%- include('layouts/head') %>
 
   <body>
+    <header>
+      <nav class="navbar navbar-dark bg-primary">
+        <a href="" class="navbar-brand">QR-System</a>
+      </nav>
+    </header>
 
-    <%- include('layouts/header') %>
-
-      <section class="conA">
-        <div class="container">
-          <div class="shadow-sm p-3 mb-5 bg-light rounded">
-            <a href="/" class="btn btn-outline-info btn-sm">ログイン画面へ</a>
-            <h6 class="text-center">アカウント登録</h6>
-          </div>
-          <% if(errors !=null && errors.length>0) { %>
-            <ul class="list-group">
-              <% for(var i=0; i < errors.length; i++){ %>
-                <li class="list-group-item list-group-item-danger">
-                  <%= errors[i] %>
-                </li>
-                <% } %>
-            </ul>
-            <% } %>
-              <form action="/user/new" method="POST" enctype="multipart/form-data">
-                <div class="control-group">
-                  <div class="form-group floating-label-form-group controls">
-                    <label class="float-left ml-2">ユーザー名</label>
-                    <input type="text" class="form-control" placeholder="User Name" id="username" name="username"
-                      value="<%= username %>">
-                  </div>
-                </div>
-                <div class="control-group">
-                  <div class="form-group floating-label-form-group controls">
-                    <label class="float-left ml-2">パスワード</label>
-                    <p class="badge text-danger">(半角英数字、大文字小文字を含む、8文字以上)</p>
-                    <input type="password" class="form-control" placeholder="Password" id="password" name="password"
-                      value="<%= password %>">
-                  </div>
-                  <div class="control-group">
-                    <div class="form-group floating-label-form-group controls">
-                      <label class="float-left ml-2">確認</label>
-                      <input type="password" class="form-control" placeholder="Password" name="passwordConfirmation">
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <div class="form-group text-right mr-2">
-                  <button type="submit" class="btn btn-primary">登録</button>
-                </div>
-              </form>
+    <section class="conA">
+      <div class="container">
+        <div class="shadow-sm p-3 mb-5 bg-light rounded">
+          <a href="/" class="btn btn-outline-info">ログイン画面へ</a>
+          <h6 class="text-center">アカウント登録</h6>
         </div>
-      </section>
+        <% if(errors !=null && errors.length>0) { %>
+          <ul class="list-group">
+            <% for(var i=0; i < errors.length; i++){ %>
+              <li class="list-group-item list-group-item-danger">
+                <%= errors[i] %>
+              </li>
+              <% } %>
+          </ul>
+          <% } %>
+            <form action="/user/new" method="POST" enctype="multipart/form-data">
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label class="float-left ml-2">ユーザー名</label>
+                  <input type="text" class="form-control" placeholder="User Name" id="username" name="username"
+                    value="<%= username %>">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label class="float-left ml-2">パスワード</label>
+                  <p class="badge text-danger">(半角英数字、大文字小文字数字を含む、8文字以上)</p>
+                  <input type="password" class="form-control" placeholder="Password" id="password" name="password"
+                    value="<%= password %>">
+                </div>
+                <div class="control-group">
+                  <div class="form-group floating-label-form-group controls">
+                    <label class="float-left ml-2">確認</label>
+                    <input type="password" class="form-control" placeholder="Password" name="passwordConfirmation">
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="form-group text-right mr-2">
+                <button type="submit" class="btn btn-primary">登録</button>
+              </div>
+            </form>
+      </div>
+    </section>
 
-      <%- include('layouts/footer') %>
+    <%- include('layouts/footer') %>
   </body>
 
 </html>

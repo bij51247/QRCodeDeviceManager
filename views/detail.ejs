@@ -8,15 +8,15 @@
     <%- include('layouts/header') %>
 
       <section class="conA" id="app">
-        <div class="container col-sm-6">
+        <div class="container col-md-8">
           <div class="shadow-sm p-3 mb-5 bg-light rounded">
-            <a class="btn btn-outline-info btn-sm" href="/status">一覧へ戻る</a>
-            <h6 class="lead text-center">詳細情報</h6>
+            <a class="btn btn-outline-info btn" href="/status">一覧へ</a>
+            <h6 class="text-center">詳細情報</h6>
           </div>
           <div class="card">
             <div class="text-center">
               <img style="width: 80%;height: auto;" src="<%= devicepost.image %>"
-                class="card-img-top img-fluid img-thumbnail">
+                class="card-img-top img-fluid img-thumbnail mt-3">
             </div>
             <div class="card-body">
               <h3 class="carc-title">
@@ -45,18 +45,45 @@
               </p>
             </div>
             <div class="card-body">
-              <form action="/deleteDevice" method="POST">
-                <img style="width: 50px; height: auto;" src="<%= devicepost.qrImgSrc %> " id="qrImgSrc">
-                <button type="button" class="btn btn-info" v-on:click="getQRcode">QRコードをダウンロード</button>
-                <input type="hidden" value="<%= devicepost.uuid %>" name="uuid">
-                <button type="submit" class="float-right btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-              </form>
+              <div class="row justify-content-between">
+                <div>
+                  <img style="width: 40px; height: auto;" src="<%= devicepost.qrImgSrc %> " id="qrImgSrc">
+                  <button type="button" class="btn btn-info" v-on:click="getQRcode">QRコードをダウンロード</button>
+                </div>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCentered">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
             </div>
           </div>
 
 
         </div>
       </section>
+
+      <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenteredLabel">機材削除</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              この機材を削除しますか
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+              <form class="mr-1" action="/deleteDevice" method="POST">
+                <input type="hidden" value="<%= devicepost.uuid %>" name="uuid">
+                <button type="submit" class="col btn btn-danger">削除する</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <%- include('layouts/footer') %>
         <script src="/js/vue.min.js"></script>
