@@ -4,7 +4,6 @@ const canvas = createCanvas(200, 200);
 const options = {};
 
 module.exports = (req, res) => {
-  // console.log(unescape(req.body.name));
   console.log(unescape(encodeURIComponent(req.body.name)));
   QRCode.toCanvas(canvas, req.body.uuid, options, function (error) {
     const ctx = canvas.getContext('2d');
