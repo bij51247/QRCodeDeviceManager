@@ -7,7 +7,7 @@ const options = {};
 
 module.exports = (req, res) => {
   // var text = req.body.name;
-  var text = encoding.convert(req.body.name, 'UTF16', 'AUTO');
+  var text = encoding.convert(req.body.name, 'UTF8', 'AUTO');
   // var detected = encoding.detect(req.body.name);
   // console.log(detected);
   // var text = encoding.convert(req.body.name,{
