@@ -9,14 +9,8 @@ new Vue({
   computed: {
     getBorrowedTime: function () {
       var borrowedTime = document.getElementById('borrowedTime').getAttribute('src');
-
       console.log(typeof (borrowedTime));
-      // new Date(borrowedTime)
-      // var year = borrowedTime.getFullYear();
-      // var month = borrowedTime.getMonth() + 1;
-      // var day = borrowedTime.getDate();
       console.log(borrowedTime);
-      // return this.borrowedTime= year + '年' + month + '月' + '日';
       return;
     }
   },

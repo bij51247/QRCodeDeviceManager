@@ -1,4 +1,3 @@
-
 const DevicePost = require('../models/DevicePost');
 const User = require('../models/User');
 
