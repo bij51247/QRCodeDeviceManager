@@ -36,8 +36,7 @@
               <p class="card-text">
                 <span style="font-weight: bold;">貸し出し日時：</span>
                 <% if(devicepost.datePosted){ %>
-                  <%= devicepost.datePosted.getFullYear() %><span>.</span><%= devicepost.datePosted.getMonth()+1 %><span>.</span><%= devicepost.datePosted.getDate() %>
-                        <%= devicepost.datePosted.getHours() %><span>:</span><%= devicepost.datePosted.getMinutes() %>
+                  <%= devicepost.datePosted.getFullYear() %><span>.</span><%= devicepost.datePosted.getMonth()+1 %><span>.</span><%= devicepost.datePosted.getDate() %><%= devicepost.datePosted.getHours() %><span>:</span><%= devicepost.datePosted.getMinutes() %>
                             <% } %>
               </p>
             </div>
