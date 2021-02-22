@@ -34,10 +34,9 @@
                 <%= devicepost.location %>
               </p>
               <p class="card-text">
-                <span style="font-weight: bold;">貸し出し日時：</span>
+                <span style="font-weight: bold;">貸し出し日：</span>
                 <% if(devicepost.datePosted){ %>
-                  <%= devicepost.datePosted.toLocaleString('ja-JP');  %> 
-                  <%= devicepost.datePosted.getFullYear() %><span>.</span><%= devicepost.datePosted.getMonth()+1 %><span>.</span><%= devicepost.datePosted.getDate() %><span>　</span><%= devicepost.datePosted.getHours() %><span>:</span><%= devicepost.datePosted.getMinutes() %>
+                  <%= devicepost.datePosted.getFullYear() %><span>年</span><%= devicepost.datePosted.getMonth()+1 %><span>月</span><%= devicepost.datePosted.getDate() %>日
                             <% } %>
               </p>
             </div>
