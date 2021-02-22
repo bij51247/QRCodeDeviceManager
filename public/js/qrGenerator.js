@@ -58,7 +58,6 @@ new Vue({
 
     },
     getImageSrc: function () {
-      // console.log("OK");
       this.count++;
       axios.post('/generate', { name: this.name, uuid: this.uuid })
         .then((response) => {

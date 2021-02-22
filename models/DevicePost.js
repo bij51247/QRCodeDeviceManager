@@ -16,6 +16,10 @@ const DevicePostSchema = new Schema({
     required: true,
   },
   image: String,
+  imageSrc:{
+    type:String,
+    required:true
+  },
   qrImgSrc: String,
   device_name: String,
   uuid: String,
