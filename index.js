@@ -33,12 +33,12 @@ app.use(expressSession({
 const DevicePost = require('./models/DevicePost')
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/device_database', {
-  useNewUrlParser: true
-})
-// mongoose.connect('mongodb+srv://bij70227:bij70227@cluster0.vgzrp.mongodb.net/device_database', {
+// mongoose.connect('mongodb://localhost/device_database', {
 //   useNewUrlParser: true
-// });
+// })
+mongoose.connect('mongodb+srv://bij70227:bij70227@cluster0.vgzrp.mongodb.net/device_database', {
+  useNewUrlParser: true
+});
 
 const loginPageController = require('./controllers/loginPage');
 const homeController = require('./controllers/home');
