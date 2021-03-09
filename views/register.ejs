@@ -9,8 +9,8 @@
 
       <section class="conA">
         <div class="container col-md-8" id="app">
+          <a class="btn btn-outline-info btn-sm mb-2" href="/home">ホームへ</a>
           <div class="shadow-sm p-3 mb-5 bg-light rounded">
-            <a class="btn btn-outline-info btn-sm" href="/home">ホームへ</a>
             <h6 class="text-center">機材を登録する</h6>
           </div>
           <form action="/register/new" method="POST" class="col-auto" enctype="multipart/form-data">
@@ -22,7 +22,6 @@
             <div class="form-group">
               <label class="float-left ml-2" for="formGroupExampleInput">写真を登録<span
                   class="ml-1 badge badge-warning">必須</span></label>
-              <!-- <input type="file" v-model="picture" class="form-control" name="image"> -->
               <input type="file" v-model="picture" class="form-control" accept="image/*" name="image">
               <input type="hidden" id="image" name="imageSrc">
               <canvas id="canvas" width="0" height="0"></canvas>

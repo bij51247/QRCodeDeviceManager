@@ -106,6 +106,8 @@ new Vue({
     this.context = this.canvas.getContext('2d');
 
     var ua = navigator.userAgent;
+
+    //もし端末だったらfacingModeをenvironment
     if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
       navigator.mediaDevices.getUserMedia({
         audio: false,
@@ -123,10 +125,11 @@ new Vue({
 
         });
     } else {
+      //もしパソコンだったらfaingModeをuser
       navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {
-          facingMode: 'user'
+          facingMode: "user"
         }
       })
         .then((stream) => {
