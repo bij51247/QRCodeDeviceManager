@@ -78,7 +78,6 @@ new Vue({
                 if (result) {
                   this.completed = true;
 
-                  // location.href = '/user'; // ここでリダイレクト
                   this.video.pause();
                 } else {
 
@@ -89,7 +88,6 @@ new Vue({
               })
               .catch((error) => { })
               .then(() => {
-                //   this.uuid = '';
               });
 
           }
@@ -107,20 +105,39 @@ new Vue({
     this.canvas = document.getElementById('canvas');
     this.context = this.canvas.getContext('2d');
 
-    navigator.mediaDevices.getUserMedia({
-      audio: false,
-      video: {
-        facingMode: {
-          exact: 'environment'
+    var ua = navigator.userAgent;
+    if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+      navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+          facingMode: {
+            exact: 'environment'
+          }
         }
-      }})
-      .then((stream) => {
+      })
+        .then((stream) => {
 
-        this.video.srcObject = stream;
-        this.video.play();
-        requestAnimationFrame(this.renderFrame);
+          this.video.srcObject = stream;
+          this.video.play();
+          requestAnimationFrame(this.renderFrame);
 
-      });
+        });
+    } else {
+      navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+          facingMode: 'user'
+        }
+      })
+        .then((stream) => {
+
+          this.video.srcObject = stream;
+          this.video.play();
+          requestAnimationFrame(this.renderFrame);
+
+        });
+
+    }
 
   }
 });

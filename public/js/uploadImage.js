@@ -79,32 +79,4 @@ $(function () {
     reader.readAsDataURL(file);
   });
 
-
-  // アップロードボタンがクリックされたら実行される関数
-  // $('#upload').click(function () {
-  //   console.log('OK');
-  //   // ファイルが指定されていなければ何も起こらない
-  //   if (!file || !blob) {
-  //     console.log('nothing');
-  //     return;
-  //   }
-
-  //   // 送信するフォームデータを作成する
-  //   var name, fd = new FormData();
-
-  //   // 先ほど作った縮小済画像データを添付する
-  //   fd.append('file', blob);
-  //   axios.post('/upload', {
-  //     name: 'test',
-  //     data: base64
-  //   })
-  //     .then(function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     })
-
-  // });
-
 });

@@ -16,8 +16,6 @@ new Vue({
   },
   watch: {
     name: function (val) {
-      console.log(this.picture)
-      console.log(this.count);
       this.image_src = ''
       this.count = 0
     },
